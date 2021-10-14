@@ -10,19 +10,29 @@ function Section() {
       <Description>
         <CompanyName>
           <p>Photosnap</p>
-          <VariableSpans>
-            <span className="new">new</span>
-            <span className="featured">featured</span>
-          </VariableSpans>
+          <span className="new">new</span>
+          <span className="featured">featured</span>
         </CompanyName>
         <h1>Senior frontend developer</h1>
         <div className="timetag">
           <p>1d ago</p>
-          <p className="dotted">FullTime</p>
-          <p className="dotted">USA Only</p>
+          <ul>
+            <li>
+              <p>FullTime</p>
+            </li>
+            <li>
+              <p>USA Only</p>
+            </li>
+          </ul>
         </div>
       </Description>
-      <Tags></Tags>
+      <Tags>
+        <p>Frontend</p>
+        <p>Senior</p>
+        <p>HTML</p>
+        <p>CSS</p>
+        <p>Javascript</p>
+      </Tags>
     </SectionCard>
   );
 }
@@ -61,11 +71,29 @@ const Description = styled.div`
     display: flex;
     opacity: 0.4;
   }
-  .timetag > .dotted {
-    te
+  .timetag > ul {
+    display: flex;
+    li {
+      margin-left: 5vh;
+    }
   }
 `;
-const Tags = styled.div``;
+const Tags = styled.div`
+  padding-left: 10vw;
+  color: #3cacac;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  p {
+    text-decoration: none;
+    background-color: hsl(180, 31%, 95%);
+    margin-left: 3vw;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 4px;
+    border-radius: 3px;
+  }
+`;
 const CompanyName = styled.div`
   display: flex;
   flex-direction: row;
@@ -95,4 +123,3 @@ const CompanyName = styled.div`
     margin-left: 10px;
   }
 `;
-const VariableSpans = styled.div``;
