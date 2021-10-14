@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import Section from "./Section";
+import styled from "styled-components";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <TopPic></TopPic>
+      <MainApp>
+        <Section />
+      </MainApp>
     </div>
   );
 }
 
 export default App;
+const MainApp = styled.div``;
+const TopPic = styled.div`
+  height: 13vh;
+  background-image: url("./images/bg-header-desktop.svg");
+  background-color: hsl(180, 29%, 50%);
+`;
+// hsl(180, 52%, 96%)
+// hsl(180, 31%, 95%)
+// hsl(180, 8%, 52%)
+//  hsl(180, 14%, 20%)
