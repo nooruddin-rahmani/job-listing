@@ -66,6 +66,10 @@ const Description = styled.div`
     font-weight: 700;
     color: hsl(180, 14%, 20%);
   }
+  h1:hover {
+    color: hsl(180, 29%, 50%);
+    cursor: pointer;
+  }
   .timetag {
     margin-top: 1vh;
     display: flex;
@@ -80,7 +84,7 @@ const Description = styled.div`
 `;
 const Tags = styled.div`
   padding-left: 10vw;
-  color: #3cacac;
+  color: hsl(180, 29%, 50%);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,6 +97,11 @@ const Tags = styled.div`
     padding: 4px;
     border-radius: 3px;
   }
+  p:hover {
+    color: hsl(180, 52%, 96%);
+    background-color: hsl(180, 29%, 50%);
+    cursor: pointer;
+  }
 `;
 const CompanyName = styled.div`
   display: flex;
@@ -104,7 +113,7 @@ const CompanyName = styled.div`
   }
   .new {
     font-size: 12px;
-    color: white;
+    color: hsl(180, 52%, 96%);
     text-transform: uppercase;
     background-color: hsl(180, 29%, 50%);
     border-radius: 9px;
@@ -114,7 +123,7 @@ const CompanyName = styled.div`
   }
   .featured {
     font-size: 12px;
-    color: white;
+    color: hsl(180, 52%, 96%);
     text-transform: uppercase;
     background-color: hsl(180, 14%, 20%);
     border-radius: 9px;
