@@ -1,39 +1,48 @@
 import React from "react";
 import styled from "styled-components";
+import data from "./data.json";
 
 function Section() {
   return (
-    <SectionCard>
-      <RooundedPhoto>
-        <img src="./images/photosnap.svg" alt="" />
-      </RooundedPhoto>
-      <Description>
-        <CompanyName>
-          <p>Photosnap</p>
-          <span className="new">new</span>
-          <span className="featured">featured</span>
-        </CompanyName>
-        <h1>Senior frontend developer</h1>
-        <div className="timetag">
-          <p>1d ago</p>
-          <ul>
-            <li>
-              <p>FullTime</p>
-            </li>
-            <li>
-              <p>USA Only</p>
-            </li>
-          </ul>
-        </div>
-      </Description>
-      <Tags>
-        <p>Frontend</p>
-        <p>Senior</p>
-        <p>HTML</p>
-        <p>CSS</p>
-        <p>Javascript</p>
-      </Tags>
-    </SectionCard>
+    <>
+      {data.map((dat, index) => {
+        return (
+          <SectionCard>
+            <RooundedPhoto>
+              <img src={dat.logo} alt="" />
+            </RooundedPhoto>
+            <Description>
+              <CompanyName>
+                <p>{dat.company}</p>
+                <span className="new">new</span>
+                <span className="featured">featured</span>
+              </CompanyName>
+              <h1>{dat.position}</h1>
+              <div className="timetag">
+                <p>{dat.postedAt}</p>
+                <ul>
+                  <li>
+                    <p>{dat.contract}</p>
+                  </li>
+                  <li>
+                    <p>{dat.location}</p>
+                  </li>
+                </ul>
+              </div>
+            </Description>
+            <Tags>
+              <p>{dat.role}</p>
+              {dat.languages.map((language, index) => {
+                return <p>{language}</p>;
+              })}
+              {dat.tools.map((tool, index) => {
+                return <p>{tool}</p>;
+              })}
+            </Tags>
+          </SectionCard>
+        );
+      })}
+    </>
   );
 }
 
@@ -83,11 +92,11 @@ const Description = styled.div`
   }
 `;
 const Tags = styled.div`
-  padding-left: 10vw;
   color: hsl(180, 29%, 50%);
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-items: flex-end;
   p {
     text-decoration: none;
     background-color: hsl(180, 31%, 95%);
