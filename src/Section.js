@@ -6,41 +6,87 @@ function Section() {
   return (
     <>
       {data.map((dat, index) => {
-        return (
-          <SectionCard>
-            <RooundedPhoto>
-              <img src={dat.logo} alt="" />
-            </RooundedPhoto>
-            <Description>
-              <CompanyName>
-                <p>{dat.company}</p>
-                <span className="new">new</span>
-                <span className="featured">featured</span>
-              </CompanyName>
-              <h1>{dat.position}</h1>
-              <div className="timetag">
-                <p>{dat.postedAt}</p>
-                <ul>
-                  <li>
-                    <p>{dat.contract}</p>
-                  </li>
-                  <li>
-                    <p>{dat.location}</p>
-                  </li>
-                </ul>
-              </div>
-            </Description>
-            <Tags>
-              <p>{dat.role}</p>
-              {dat.languages.map((language, index) => {
-                return <p>{language}</p>;
-              })}
-              {dat.tools.map((tool, index) => {
-                return <p>{tool}</p>;
-              })}
-            </Tags>
-          </SectionCard>
-        );
+        if (dat.id === 1 || dat.id === 2) {
+          return (
+            <SectionCard style={{ borderLeft: "7px solid hsl(180, 29%, 50%)" }}>
+              <RooundedPhoto>
+                <img src={dat.logo} alt="" />
+              </RooundedPhoto>
+              <Description>
+                <CompanyName>
+                  <p>{dat.company}</p>
+                  <span className={dat.new && "new"}>{dat.new && "NEW"}</span>
+                  <span className={dat.featured && "featured"}>
+                    {dat.featured && "FEATURED"}
+                  </span>
+                </CompanyName>
+                <h1>{dat.position}</h1>
+                <div className="timetag">
+                  <p>{dat.postedAt}</p>
+                  <ul>
+                    <li>
+                      <p>{dat.contract}</p>
+                    </li>
+                    <li>
+                      <p>{dat.location}</p>
+                    </li>
+                  </ul>
+                </div>
+              </Description>
+              <Tags>
+                <div className="tagcon">
+                  <p>{dat.role}</p>
+                  {dat.languages.map((language, index) => {
+                    return <p>{language}</p>;
+                  })}
+                  {dat.tools.map((tool, index) => {
+                    return <p>{tool}</p>;
+                  })}
+                </div>
+              </Tags>
+            </SectionCard>
+          );
+        } else {
+          return (
+            <SectionCard>
+              <RooundedPhoto>
+                <img src={dat.logo} alt="" />
+              </RooundedPhoto>
+              <Description>
+                <CompanyName>
+                  <p>{dat.company}</p>
+                  <span className={dat.new && "new"}>{dat.new && "NEW"}</span>
+                  <span className={dat.featured && "featured"}>
+                    {dat.featured && "FEATURED"}
+                  </span>
+                </CompanyName>
+                <h1>{dat.position}</h1>
+                <div className="timetag">
+                  <p>{dat.postedAt}</p>
+                  <ul>
+                    <li>
+                      <p>{dat.contract}</p>
+                    </li>
+                    <li>
+                      <p>{dat.location}</p>
+                    </li>
+                  </ul>
+                </div>
+              </Description>
+              <Tags>
+                <div className="tagcon">
+                  <p>{dat.role}</p>
+                  {dat.languages.map((language, index) => {
+                    return <p>{language}</p>;
+                  })}
+                  {dat.tools.map((tool, index) => {
+                    return <p>{tool}</p>;
+                  })}
+                </div>
+              </Tags>
+            </SectionCard>
+          );
+        }
       })}
     </>
   );
@@ -53,9 +99,9 @@ const SectionCard = styled.div`
   background: #fff;
   margin: 5vh 0 0 10vw;
   border-radius: 5px;
-  border-left: 7px solid hsl(180, 29%, 50%);
   display: flex;
   flex-direction: row;
+  box-shadow: 0px 14px 68px -29px hsl(180, 29%, 50%);
 `;
 const RooundedPhoto = styled.div`
   width: 6.5vw;
@@ -92,11 +138,17 @@ const Description = styled.div`
   }
 `;
 const Tags = styled.div`
+  right: 1vw;
   color: hsl(180, 29%, 50%);
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-items: flex-end;
+  justify-content: space-between;
+  .tagcon {
+    display: flex;
+    position: absolute;
+    right: 13vw;
+  }
   p {
     text-decoration: none;
     background-color: hsl(180, 31%, 95%);
@@ -110,6 +162,9 @@ const Tags = styled.div`
     color: hsl(180, 52%, 96%);
     background-color: hsl(180, 29%, 50%);
     cursor: pointer;
+  }
+  .to {
+    display: none;
   }
 `;
 const CompanyName = styled.div`
