@@ -75,12 +75,12 @@ function Section() {
               </Description>
               <Tags>
                 <div className="tagcon">
-                  <p>{dat.role}</p>
+                  <p onClick={popUp}>{dat.role}</p>
                   {dat.languages.map((language, index) => {
-                    return <p>{language}</p>;
+                    return <p onClick={popUp}>{language}</p>;
                   })}
                   {dat.tools.map((tool, index) => {
-                    return <p>{tool}</p>;
+                    return <p onClick={popUp}>{tool}</p>;
                   })}
                 </div>
               </Tags>
@@ -92,6 +92,9 @@ function Section() {
   );
 }
 
+const popUp = () => {
+  alert("In Development :smile");
+};
 export default Section;
 const SectionCard = styled.div`
   width: 80vw;

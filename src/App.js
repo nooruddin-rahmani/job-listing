@@ -21,7 +21,3 @@ const TopPic = styled.div`
   background-image: url("./images/bg-header-desktop.svg");
   background-color: hsl(180, 29%, 50%);
 `;
-// hsl(180, 52%, 96%)
-// hsl(180, 31%, 95%)
-// hsl(180, 8%, 52%)
-//  hsl(180, 14%, 20%)
